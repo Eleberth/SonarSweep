@@ -2,9 +2,9 @@
 
 namespace SonarSweep.Application
 {
-    public class SubmarineQueryService : QueryService
+    public class SubmarineQueryService
     {
-        public override int CalculateMeasurementIncreases(Submarine submarine)
+        public int CalculateMeasurementIncreases(Submarine submarine)
         {
             List<int> readings = submarine.ExtractSonarReadings().ToList();
 
