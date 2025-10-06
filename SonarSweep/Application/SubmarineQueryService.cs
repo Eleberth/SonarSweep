@@ -6,15 +6,31 @@ namespace SonarSweep.Application
     {
         public override int CalculateMeasurementIncreases(Submarine submarine)
         {
-            IEnumerable<int> readings = submarine.ExtractSonarReadings();
+            List<int> readings = submarine.ExtractSonarReadings().ToList();
 
-            if (!readings.Any())
+            if (readings.Count == 0)
             {
                 return 0;
             }
 
-            return Enumerable.Range(1, readings.Count() - 1)
+            return Enumerable.Range(1, readings.Count - 1)
                 .Where(i => readings.ElementAt(i) > readings.ElementAt(i - 1))
+                .Count();
+        }
+
+        public int CalculateWindowMeasurementIncreases(Submarine submarine)
+        {
+            int windowSize = 3;
+
+            List<int> readings = submarine.ExtractSonarReadings().ToList();
+
+            if (readings.Count <= windowSize)
+            {
+                return 0;
+            }
+
+            return Enumerable.Range(1, readings.Count - windowSize)
+                .Where(i => readings.GetRange(i, windowSize).Sum() > readings.GetRange(i - 1, windowSize).Sum())
                 .Count();
         }
     }

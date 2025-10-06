@@ -17,6 +17,23 @@ namespace SonarSweep.Application
         }
     }
 
+    internal class Submarine3SweepsCommandService : CommandService
+    {
+        public override void SweepSeaFloor(Submarine submarine)
+        {
+            #region Sweep
+            List<int> readings =
+            [
+                143,
+                144,
+                145
+            ];
+            #endregion
+
+            submarine.SweepSeaFloor(readings);
+        }
+    }
+
     internal class Submarine10IncreasesCommandService : CommandService
     {
         public override void SweepSeaFloor(Submarine submarine)
