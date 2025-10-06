@@ -8,12 +8,12 @@
         }
 
         public Sonar Sonar { get; }
-        public void SweepSeaFloor(IEnumerable<int> readings)
+        public void SweepSeaFloor(List<int> readings)
         {
             Sonar.SweepSeaFloor(readings);
         }
 
-        public IEnumerable<int> ExtractSonarReadings()
+        public List<int> ExtractSonarReadings()
         {
             return Sonar.ExtractReadings();
         }

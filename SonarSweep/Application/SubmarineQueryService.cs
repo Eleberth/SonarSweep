@@ -4,9 +4,9 @@ namespace SonarSweep.Application
 {
     public class SubmarineQueryService
     {
-        public int CalculateMeasurementIncreases(Submarine submarine)
+        public static int CalculateMeasurementIncreases(Submarine submarine)
         {
-            List<int> readings = submarine.ExtractSonarReadings().ToList();
+            List<int> readings = submarine.ExtractSonarReadings();
 
             if (readings.Count == 0)
             {
@@ -18,11 +18,11 @@ namespace SonarSweep.Application
                 .Count();
         }
 
-        public int CalculateWindowMeasurementIncreases(Submarine submarine)
+        public static int CalculateWindowMeasurementIncreases(Submarine submarine)
         {
             int windowSize = 3;
 
-            List<int> readings = submarine.ExtractSonarReadings().ToList();
+            List<int> readings = submarine.ExtractSonarReadings();
 
             if (readings.Count <= windowSize)
             {

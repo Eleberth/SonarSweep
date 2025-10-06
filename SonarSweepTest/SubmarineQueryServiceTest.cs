@@ -11,10 +11,9 @@ namespace SonarSweepTest
         {
             Submarine submarine = new();
             Submarine1SweepCommandService submarineCommandService = new();
-            SubmarineQueryService submarineQueryService = new();
 
             submarineCommandService.SweepSeaFloor(submarine);
-            int increases = submarineQueryService.CalculateMeasurementIncreases(submarine);
+            int increases = SubmarineQueryService.CalculateMeasurementIncreases(submarine);
 
             Assert.AreEqual(0, increases);
         }
@@ -24,10 +23,9 @@ namespace SonarSweepTest
         {
             Submarine submarine = new();
             Submarine10IncreasesCommandService submarineCommandService = new();
-            SubmarineQueryService submarineQueryService = new();
 
             submarineCommandService.SweepSeaFloor(submarine);
-            int increases = submarineQueryService.CalculateMeasurementIncreases(submarine);
+            int increases = SubmarineQueryService.CalculateMeasurementIncreases(submarine);
 
             Assert.AreEqual(10, increases);
         }
@@ -37,10 +35,9 @@ namespace SonarSweepTest
         {
             Submarine submarine = new();
             SubmarineCommandService submarineCommandService = new();
-            SubmarineQueryService submarineQueryService = new();
 
             submarineCommandService.SweepSeaFloor(submarine);
-            int increases = submarineQueryService.CalculateMeasurementIncreases(submarine);
+            int increases = SubmarineQueryService.CalculateMeasurementIncreases(submarine);
 
             Assert.IsTrue(increases > 0);
         }
@@ -50,10 +47,9 @@ namespace SonarSweepTest
         {
             Submarine submarine = new();
             Submarine3SweepsCommandService submarineCommandService = new();
-            SubmarineQueryService submarineQueryService = new();
 
             submarineCommandService.SweepSeaFloor(submarine);
-            int increases = submarineQueryService.CalculateWindowMeasurementIncreases(submarine);
+            int increases = SubmarineQueryService.CalculateWindowMeasurementIncreases(submarine);
 
             Assert.AreEqual(0, increases);
         }
@@ -63,10 +59,9 @@ namespace SonarSweepTest
         {
             Submarine submarine = new();
             Submarine10IncreasesCommandService submarineCommandService = new();
-            SubmarineQueryService submarineQueryService = new();
 
             submarineCommandService.SweepSeaFloor(submarine);
-            int increases = submarineQueryService.CalculateWindowMeasurementIncreases(submarine);
+            int increases = SubmarineQueryService.CalculateWindowMeasurementIncreases(submarine);
 
             Assert.AreEqual(9, increases);
         }
@@ -76,10 +71,9 @@ namespace SonarSweepTest
         {
             Submarine submarine = new();
             SubmarineCommandService submarineCommandService = new();
-            SubmarineQueryService submarineQueryService = new();
 
             submarineCommandService.SweepSeaFloor(submarine);
-            int increases = submarineQueryService.CalculateWindowMeasurementIncreases(submarine);
+            int increases = SubmarineQueryService.CalculateWindowMeasurementIncreases(submarine);
 
             Assert.IsTrue(increases > 0);
         }

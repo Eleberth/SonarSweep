@@ -2,14 +2,14 @@
 {
     public class Sonar
     {
-        private IEnumerable<int>? Readings { get; set; }
+        private List<int>? Readings { get; set; }
 
-        public void SweepSeaFloor(IEnumerable<int> readings)
+        public void SweepSeaFloor(List<int> readings)
         {
             Readings = readings;
         }
 
-        public IEnumerable<int> ExtractReadings()
+        public List<int> ExtractReadings()
         {
             return Readings ?? [];
         }
